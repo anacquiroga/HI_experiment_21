@@ -1,0 +1,111 @@
+{{ block title }}Personalized information{{ endblock }}
+{{ block content }}
+
+<style>
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border: 3px solid darkblue;
+  text-align: center;
+}
+    
+.aligncenter {
+    justify-content: center;
+    padding: 10px;
+    }
+    
+img {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto; 
+}
+    
+</style>
+
+
+<div class="center">
+ {{ if info_type == 1 }}
+    {{ if have_best_plan == 1 }}
+    <div>
+    <p>
+        Your expected health costs are {{ he_ec }} Points. Currently you have the plan with lowest expected costs based on your health profile. All other plans have higher expected costs.
+    </p><br> 
+        </div>
+      
+        
+    {{ else }}
+        <div class="aligncenter">
+    <p>
+        Your expected health costs are {{ he_ec }}. Given your health profile the contract with the lowest expected costs is: <b>Contract {{ player.best_plan }}</b>.<br>
+        With this contract, you expected savings are: <b>{{ player.potential_savings }} Points </b>
+    </p> <br>
+  </div>
+   <div class="aligncenter">
+       <p>
+           Contracts with potential savings:
+       </p>
+    <table style="width:100%">
+  <tr>
+    <th style="text-align: right; padding-right: 10px;">Contract</th> 
+      {{ for plan in better_plans }}
+      <td style="text-align: center; vertical-align: middle; padding-right: 10px; pading-left: 10px;"><b>{{ plan }}</b></td>
+      {{ endfor }}
+        </tr>
+        <tr>
+      <th style="text-align: right; padding-right: 10px;"> Potential savings in Points </th>
+            {% for saving in savings %}
+     <td style="text-align: center; vertical-align: middle; padding-right: 10px; pading-left: 10px;">{{ saving }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+       </div>
+    
+    {{ endif }}
+    
+{{ endif }}
+    
+{{ if info_type == 2 }}
+    {{ if have_best_plan == 1}}
+    <div>
+    <p>
+        Your expected health costs are {{ he_ec }} Points. Currently you have the plan with lowest expected costs based on your health profile. All other plans have higher expected costs.
+    </p>
+    </div>
+    <div>
+        <img src="{{ static image_path }}" class="aligncenter" /><br>
+        <p>
+            The dashed red line shows your current expected health costs. 
+        </p>
+    </div>
+    
+    {{ else }}
+    <div>
+    <p>
+        Your expected health costs are {{ he_ec }} Points. Given your health profile the contract with the lowest expected costs is: <b>Contract {{ player.best_plan }}</b>.<br>
+        With this contract, you expected savings are: <b>{{ player.potential_savings }} Points </b>
+    </p> 
+    </div>
+    <div>
+        <img src="{{ static image_path }}"/><br>
+         <p>
+            The dashed red line shows your current expected health costs. 
+        </p>
+    </div>
+
+   {{ endif }}
+ {{ endif }}   
+
+</div>
+<br>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+<button class="btn btn-primary" name="change_hi" value="True">Change Health Insurance</button>
+<button class="btn btn-primary" name="change_hi" value="False">Go to next round</button>
+</div>
+
+
+{{ endblock }}

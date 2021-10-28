@@ -1,0 +1,128 @@
+{{ block title }}Round {{ player.round_number }}  - Status overview{{ endblock }}
+{{ block content }}
+
+
+<style>
+.flex-container {
+    width: 100%; 
+    display: flex;
+    justify-content: space-around;}
+
+.quiz {
+    border-style: inset;
+    border-color: lightslategray;
+    padding: 25px;
+    height: 400px;
+    width: 600px
+}
+
+</style>
+
+<script>
+
+    function liveRecv(data) {
+
+        var answers = document.getElementsByName('answer');
+        for (var i = 0; i < answers.length; i++) {
+            answers[i].checked = false;
+        }
+
+        const questions = data.data;
+        const correctAnswersText = "Correct answers: " + questions.correct_quiz + "&nbsp <font size='-1' color='grey'>(" + questions.correct_quiz * 10 + " Points)</font>";
+
+        document.getElementById("label_question").innerHTML = questions.question;
+        document.getElementById("label_optionA").innerHTML = questions.optionA;
+        document.getElementById("label_optionB").innerHTML = questions.optionB;
+        document.getElementById("label_optionC").innerHTML = questions.optionC;
+        document.getElementById("label_optionD").innerHTML = questions.optionD;
+        document.getElementById("label_correct").innerHTML = correctAnswersText;
+
+
+    }
+
+    function sendValue() {
+        const question = document.forms.form.answer;
+        liveSend({
+            answer: parseInt(question.value)
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        // send empty message to load initial question, or in case page is refreshed.
+        liveSend({init: "You can ignore me"});
+    });
+
+</script>
+
+
+
+<div class="flex-container">
+
+    <div class="quiz">
+
+        <b>Question:</b><br>
+        <form id="question" name="question">
+            <p id="label_question"></p>
+            <div class="form-check">
+                 <input class="form-check-input" type="radio" autocomplete="off"  name="answer" value=1 id="radio_optionA"/><label id="label_optionA" for="optionA"></label class="form-check-label"><br>
+                 <input class="form-check-input" type="radio" autocomplete="off"  name="answer" value=2 id="radio_optionB"/><label id="label_optionB" for="optionB"></label class="form-check-label"><br>
+                 <input class="form-check-input" type="radio" autocomplete="off"  name="answer" value=3 id="radio_optionC"/><label id="label_optionC" for="optionC"></label class="form-check-label"><br>
+                 <input class="form-check-input" type="radio" autocomplete="off"  name="answer" value=4 id="radio_optionD"/><label id="label_optionD" for="optionD"></label class="form-check-label"><br>
+            </div>
+
+
+            <br>
+            <button type="button" onclick="sendValue()">Next Question</button>
+            <br>
+
+            </form>
+    <br>
+        <p id="label_correct"></p>
+    </div>
+     
+    
+    <div>
+      <p><b>Finances</b>
+        <br>Bank Account: {{balance}} Points
+        <br>Fixed income: {{ income }} Points
+
+        </p>
+
+       <p>
+        <b>Health Insurance<!-- : {{ player.plan }} --> </b>
+        <br>Contract {{ player.plan }}
+        <br>Premium: {{ premium }} Points
+        <br>Deductible: {{ deductible }} Points
+            </p> 
+        
+
+        
+         <table>
+     <tr><th>Risk Profile</th></tr>
+     <tr>
+         <td colspan="2">Minor Health Events:</td>
+     </tr>
+             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_1 }}&nbsp;<span style="font-size: 10px;"><i>({{ he_cost_1 }} Points)</i></span></td>
+           <td> {{ prob_a }}% </td>
+     </tr>
+             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_2}}&nbsp;<span style="font-size: 10px;"><i>({{ he_cost_2 }} Points)</i></span></td>
+           <td> {{ prob_b }}% </td>
+     </tr>
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_0 }} </td>
+         <td> {{ prob_h }}% </td>
+     </tr>
+     <tr><td colspan="2">Major Health Event (2 rounds):</td>
+             </tr>
+             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_3 }} &nbsp;<span style="font-size: 10px;"><i>({{ he_cost_3}} Points)</i></span></td>
+             <td> {{ prob_c}}% </td></tr>
+     <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_4}}</td>
+         <td> {{ prob_noc}}% </td>
+     </tr>
+     </table> 
+        
+ </div>
+</div>
+
+
+{{ endblock }}

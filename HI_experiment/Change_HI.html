@@ -1,0 +1,87 @@
+{{ block title }}Round {{ player.round_number }} - Health Insurance Selection {{ endblock }}
+{{ block content }}
+
+<p>Please select your Health Insurance plan for this round:
+</p>
+
+<table style="width:100%">
+  <tr>
+    <th>Contracts</th> 
+    {% for plan in Constants.plans %}
+        {% if plan == previous %}
+          <th bgcolor="lightgrey" style="text-align: center; vertical-align: middle;">{{ plan }}</th> 
+        {% else %}
+          <th style="text-align: center; vertical-align: middle;">{{ plan }}</th>
+        {% endif %}
+     {% endfor %}  
+  </tr>
+    
+    <tr>
+    <td>Premium</td>
+    {% for premium in Constants.premiums %}
+    <td style="text-align: center; vertical-align: middle;">{{ premium }}</td>
+    {% endfor %}
+    </tr>
+    
+  <tr>
+    <td>Dedutible</td>
+    {% for deductible in Constants.deductibles %}
+    <td style="text-align: center; vertical-align: middle;">{{ deductible }}</td>
+    {% endfor %}
+  </tr> 
+  <tr>
+        <th>Choose a contract:</th>
+        <td style="text-align: center; vertical-align: middle;"><button name="selected_hi" value=1>Contract 1</button></td>
+        <td style="text-align: center; vertical-align: middle;"><button name="selected_hi" value=2>Contract 2</button></td>
+        <td style="text-align: center; vertical-align: middle;"><button name="selected_hi" value=3>Contract 3</button></td>
+        <td style="text-align: center; vertical-align: middle;"><button name="selected_hi" value=4>Contract 4</button></td>
+        <td style="text-align: center; vertical-align: middle;"><button name="selected_hi" value=5>Contract 5</button></td>
+        <td style="text-align: center; vertical-align: middle;"><button name="selected_hi" value=6>Contract 6</button></td>      
+</tr>
+</table>
+<br>
+
+<div class="accordion" id="riskProfile">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Risk Profile
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <table style="margin-left:auto;margin-right:auto;">
+     <tr>
+         <td colspan="2">Minor Health Events:</td>
+     </tr>
+             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_1 }}&nbsp;<span style="font-size: 10px;"><i>({{ he_cost_1 }} Points)</i></span></td>
+           <td> {{ prob_a }}% </td>
+     </tr>
+             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_2}}&nbsp;<span style="font-size: 10px;"><i>({{ he_cost_2 }} Points)</i></span></td>
+           <td> {{ prob_b }}% </td>
+     </tr>
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_0 }} </td>
+         <td> {{ prob_h }}% </td>
+         <!--<td><small>{{ he_cost_0 }} Points</small></td>-->
+     </tr>
+     <tr><td colspan="2">Major Health Event (2 rounds):</td>
+             </tr>
+             <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_3 }} &nbsp;<span style="font-size: 10px;"><i>({{ he_cost_3}} Points)</i></span></td>
+             <td> {{ prob_c}}% </td></tr>
+     <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;- {{ he_event_4}}</td>
+         <td> {{ prob_noc}}% </td>
+         <!--<td><small>{{ he_cost_0 }} Points</small> </td>-->
+     </tr>
+     </table>
+      </div>
+    </div>
+  </div>
+
+
+    
+
+
+
+
+{{ endblock }}

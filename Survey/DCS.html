@@ -1,0 +1,55 @@
+{{ block title }} {{ endblock }}
+{{ block content }}
+
+{{ if player.dcs_r == 1 }}
+<p class="fs-5">
+    Recall the <ins>second</ins> round of the experiment.
+</p>
+{{ else }}
+<p class="fs-5">
+    Recall the <ins>last</ins> round of the experiment.
+</p>
+{{ endif }}
+
+{{ formfield 'dcs_initial' }}
+<br>
+{{ if player.dcs_r == 1 }}
+<p class="fs-5">
+    Related to this choice that you made in the second round of the experiment, please answer the following:
+</p>
+{{ else }}
+<p class="fs-5">
+    Related to this choice that you made in the last round of the experiment, please answer the following:
+</p>
+{{ endif }}
+
+<br>
+<table class="table table-bordered">
+    <tr><td></td><td></td><th class="text-center" style="width: 10%">Yes</th><th class="text-center" style="width: 10%">No</th></tr>
+        
+    <tr><td><b>S</b>ure of myself</td><td>{{ form.sure1.label }} {{ formfield_errors 'sure1' }}</td>
+    {{ for choice in form.sure1 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+        <tr><td><b>U</b>nderstanding information</td><td>{{ form.sure2.label }} {{ formfield_errors 'sure2' }}</td>
+    {{ for choice in form.sure2 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+        <tr><td><b>R</b>isk-benefit ratio</td><td>{{ form.sure3.label }} {{ formfield_errors 'sure3' }}</td>
+    {{ for choice in form.sure3 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+        <tr><td><b>E</b>encouragement</td><td>{{ form.sure4.label }} {{ formfield_errors 'sure4' }}</td>
+    {{ for choice in form.sure4 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+
+</table>
+
+{{ next_button }}
+
+{{ endblock }}

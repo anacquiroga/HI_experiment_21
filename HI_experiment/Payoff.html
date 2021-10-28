@@ -1,0 +1,14 @@
+{{ block title }}End of Rounds{{ endblock }}
+{{ block content }}
+
+{% formfields %}
+You have finished the experiment rounds.
+<br>
+<br>Your payoff is <b>{{ player.totalpayoff }} CHF</b>.
+<br>
+<br>
+Press next to continue with the survey.
+
+{% next_button %}
+
+{{ endblock }}

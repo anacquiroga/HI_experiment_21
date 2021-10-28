@@ -1,0 +1,131 @@
+{{ block title }} {{ endblock }}
+{{ block content }}
+
+<p class="fs-5">
+    Please answer the following questions:
+</p>
+
+<table class="table table-bordered">
+    <tr><th><p class="fs-5">How confident are you that you… </p></th><th class="text-center" style="width: 10%">Quite confident</th><th class="text-center" style="width: 10%">Reasonably confident</th><th class="text-center" style="width: 10%">A little confident</th><th class="text-center" style="width: 10%">Not confident at all</th></tr>
+    <tr><td>{{ form.hil1.label }} {{ formfield_errors 'hil1' }}</td>
+    {{ for choice in form.hil1 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+        <tr><td>{{ form.hil2.label }} {{ formfield_errors 'hil2' }}</td>
+    {{ for choice in form.hil2 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+        <tr><td>{{ form.hil3.label }} {{ formfield_errors 'hil3' }}</td>
+    {{ for choice in form.hil3 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+        <tr><td>{{ form.hil4.label }} {{ formfield_errors 'hil4' }}</td>
+    {{ for choice in form.hil4 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+        <tr><td>{{ form.hil5.label }} {{ formfield_errors 'hil5' }}</td>
+    {{ for choice in form.hil5 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+        <tr><td>{{ form.hil6.label }} {{ formfield_errors 'hil6' }}</td>
+    {{ for choice in form.hil6 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+    </table><br>
+
+ <table class="table table-bordered">
+     <tr><th><p class="fs-5">When comparing health insurance plans how likely is it that you… </p></th><th class="text-center" style="width: 10%">Very likely</th><th class="text-center" style="width: 10%">Reasonably likely</th><th class="text-center" style="width: 10%">A little likely</th><th class="text-center" style="width: 10%">Not likely at all</th></tr>
+             <tr><td>{{ form.hil7.label }} {{ formfield_errors 'hil7' }}</td>
+    {{ for choice in form.hil7 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+             <tr><td>{{ form.hil8.label }} {{ formfield_errors 'hil8' }}</td>
+    {{ for choice in form.hil8 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+             <tr><td>{{ form.hil9.label }} {{ formfield_errors 'hil9' }}</td>
+    {{ for choice in form.hil9 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+             <tr><td>{{ form.hil10.label }} {{ formfield_errors 'hil10' }}</td>
+    {{ for choice in form.hil10 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+             <tr><td>{{ form.hil11.label }} {{ formfield_errors 'hil11' }}</td>
+    {{ for choice in form.hil11 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+     <tr><td>{{ form.hil12.label }} {{ formfield_errors 'hil12' }}</td>
+    {{ for choice in form.hil12 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+     <tr><td>{{ form.hil13.label }} {{ formfield_errors 'hil13' }}</td>
+    {{ for choice in form.hil13 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+    </table><br>
+
+<table class="table table-bordered">
+    <tr><th><p class="fs-5">Before you receive certain care, how confident are you that you… </p></th><th class="text-center" style="width: 10%">Quite confident</th><th class="text-center" style="width: 10%">Reasonably confident</th><th class="text-center" style="width: 10%">A little confident</th><th class="text-center" style="width: 10%">Not confident at all</th></tr>
+    <tr><td>{{ form.hil14.label }} {{ formfield_errors 'hil14' }}</td>
+    {{ for choice in form.hil14 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+    <tr><td>{{ form.hil15.label }} {{ formfield_errors 'hil15' }}</td>
+    {{ for choice in form.hil15 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+    <tr><td>{{ form.hil16.label }} {{ formfield_errors 'hil16' }}</td>
+    {{ for choice in form.hil16 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+    <tr><td>{{ form.hil17.label }} {{ formfield_errors 'hil17' }}</td>
+    {{ for choice in form.hil17 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+    </table><br>
+    <table class="table table-bordered">
+        <tr><th><p class="fs-5">How likely is it that you…  </p></th><th class="text-center" style="width: 10%">Very likely</th><th class="text-center" style="width: 10%">Reasonably likely</th><th class="text-center" style="width: 10%">A little likely</th><th class="text-center" style="width: 10%">Not likely at all</th></tr>
+    <tr><td>{{ form.hil18.label }} {{ formfield_errors 'hil18' }}</td>
+    {{ for choice in form.hil18 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+    <tr><td>{{ form.hil19.label }} {{ formfield_errors 'hil19' }}</td>
+    {{ for choice in form.hil19 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+    <tr><td>{{ form.hil20.label }} {{ formfield_errors 'hil20' }}</td>
+    {{ for choice in form.hil20 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+    <tr><td>{{ form.hil21.label }} {{ formfield_errors 'hil21' }}</td>
+    {{ for choice in form.hil21 }}
+        <td class="text-center">{{ choice }}</td>
+    {{ endfor }}
+</tr>
+</table><br>
+
+
+{{ next_button }}
+
+{{ endblock }}

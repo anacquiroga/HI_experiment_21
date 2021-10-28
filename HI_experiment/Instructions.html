@@ -1,0 +1,52 @@
+{{ block title }}Instructions{{ endblock }}
+{{ block content }}
+
+<p>
+You are part of an insurance choice experiment that consists of <b>{{ Constants.num_rounds }} rounds</b>. Every round lasts between 2 and 3 minutes. The experiment takes approximately 30-40 minutes. After you finish the experiment, you will be asked to answer a survey that takes around 15-20 minutes.<br>
+In every round, you face the <b>decision</b> to either change your current insurance contract or stick to your previous contract for another round. The insurance contracts differ with respect to the period premium you pay and the out-of-pocket payments (deductibles) you face in case of an adverse event.
+</p>
+<p>
+    <b>How to earn points during the experiment?</b><br>
+    <br>
+    You receive a <b>fixed income</b> of {{ Constants.income }} Points in every round of the game.<br>
+    You can also earn <b>extra points</b> by answering trivia questions correctly on each round.</p>
+   <p><b>How to lose points during the experiment?</b><br>
+    <br>
+    At the end of each round, you are given the option of changing your current insurance contract.<br>
+    You have to have an insurance for every period of the experiment. This means you must <b>pay the insurance premium</b> which will be subtracted from your bank account. <br>
+    You may also lose points due to <b>adverse health events</b>, each health event has a different cost.<br>
+    It is possible to lose more points than you earn through your fixed income in a round. In that case, the loss you make will be subtracted from your aggregated points on your balance from previous rounds. </p>
+
+    <p><b>Risk Profile and health events</b><br>
+    <br>
+    During each period a minor and/or major health event can take place.<br>
+    The probability of these events taking place depends on your individual <b>"Risk Profile"</b>. Your risk profile tells you with which probability each event can take place. Note that your <b>risk profile can change</b> during the experiment. If your risk profile changes, the change will be indicated in your screen.</p>
+ 
+    <p><b>What "health events" can take place?</b><br>
+
+        Whether health events take place or not is <b>randomly determined</b> by the computer, based on your risk profile. There are two types of events that can occur during each round:<br> </p>
+<ul>
+<li><b>Minor health events:</b> During each round <b>minor events "A" or "B"</b> can take place. These events occur with a given probability based on your risk profile.</li>
+<li><b>Major health event:</b> This type of event is more expensive than the minor health event, and the probability of it happening is <b>independent from the minor health events</b>, so both a minor health event a major health event can take place in the same round. If a major health event takes place, it will <b>cause expenses in two consecutive rounds</b>. A major health event <b>can take place again even if it occurred in the previous round</b>, this means that major health events can overlap through rounds.</li>
+</ul>
+<p>
+    <b>Changing Health Insurance</b><br>
+    <br>
+    When the experiment starts, you will be assigned a Health Insurance plan automatically.<br>
+    At the end of each round, you are given the option of changing your health insurance or keeping your current plan for the next round. 
+</p>
+<p><b>Exchanging points for money</b><br>
+    <br>
+    The cumulated points that you have on your "bank account" at the end of the experiment will be converted into Swiss Francs at the rate of <b>1 Swiss Franc per {{ Constants.points_per_chf }} Points</b>. In addition to this amount, you receive a fixed amount of {{ Constants.show_fee }} Swiss Francs.<br>
+    Your final payment will be rounded up to the nearest CHF.
+</p>
+   <p>
+    <b>On-Screen examples</b><br>
+    <br>
+    On the next few pages, you will see some examples of the screens you face during the experiment and you will be asked to answer a few questions to make sure you understand everything. If there is anything you don't understand please raise your hand. 
+</p>
+
+
+{% next_button %}
+
+{{ endblock }}

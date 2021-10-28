@@ -1,0 +1,132 @@
+{{ block title }} {{ endblock }}
+{{ block content }}
+
+<style>
+    .container {
+        justify-content: center;
+        flex-basis: 30%;
+    }
+</style>
+<p class="fs-5">
+    In this section you are asked to make some hypothetical decisions.
+    <b>Remember there are no right or wrong answers. We are interested in your own preference and attitudes.
+</b>
+</p>
+<hr style="text-align:left;margin-left:0">
+<p>
+    <b><i>Imagine you are offered the Lotteries below. Please indicate the <ins>maximum</ins> amount you are willing to pay for the lottery</i></b>
+
+   <h6><b>Lottery 1.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">10% chance</td><td class="text-center">Win of 10 CHF</td></tr>
+      <tr><td class="text-center">90% chance</td><td class="text-center">Win of 100 CHF</td></tr>
+</table>
+    </div>
+{{ formfield 'lot1' }}
+    <br>
+<h6><b>Lottery 2.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">40% chance</td><td class="text-center">Win of 0 CHF</td></tr>
+      <tr><td class="text-center">60% chance</td><td class="text-center">Win of 100 CHF</td></tr>
+</table>
+</div>
+{{ formfield 'lot2' }}
+<br>
+<h6><b>Lottery 3.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">10% chance</td><td class="text-center">Win of 0 CHF</td></tr>
+      <tr><td class="text-center">90% chance</td><td class="text-center">Win of 100 CHF</td></tr>
+</table>
+</div>
+{{ formfield 'lot3' }}
+<br>
+<h6><b>Lottery 4.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">40% chance</td><td class="text-center">Win of 0 CHF</td></tr>
+      <tr><td class="text-center">60% chance</td><td class="text-center">Win of 10000 CHF</td></tr>
+</table>
+</div>
+{{ formfield 'lot4' }}
+<br>
+<h6><b>Lottery 5.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">90% chance</td><td class="text-center">Win of 0 CHF</td></tr>
+      <tr><td class="text-center">10% chance</td><td class="text-center">Win of 100 CHF</td></tr>
+</table>
+</div>
+{{ formfield 'lot5' }}
+<br>
+<h6><b>Lottery 6.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">40% chance</td><td class="text-center">Win of 0 CHF</td></tr>
+      <tr><td class="text-center">60% chance</td><td class="text-center">Win of 400 CHF</td></tr>
+</table>
+</div>
+{{ formfield 'lot6' }}
+<br>
+<hr style="text-align:left;margin-left:0">
+<p>
+    <b><i>The following Lotteries involve losses. Imagine you <ins>have to</ins> play these Lotteries, unless you pay a certain amount of money beforehand. What is the <ins>maximum</ins> amount you would be willing to pay, in order to <ins>avoid</ins> playing the lottery? This corresponds to buying an insurance that saves you from suffering potential losses.
+    </i></b></p>
+
+<h6><b>Lottery 7.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">60% chance</td><td class="text-center">Loss of 80 CHF</td></tr>
+      <tr><td class="text-center">40% chance</td><td class="text-center">No loss, no win</td></tr>
+</table>
+</div>
+{{ formfield 'lot7' }}
+<br>
+<h6><b>Lottery 8.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">60% chance</td><td class="text-center">Loss of 100 CHF</td></tr>
+      <tr><td class="text-center">40% chance</td><td class="text-center">No loss, no win</td></tr>
+</table>
+</div>
+{{ formfield 'lot8' }}
+<br>
+<hr style="text-align:left;margin-left:0">
+<p>
+    <b><i>In the following Lotteries you have a 50% chance to win or lose money. The potential loss is given. Please state the minimum amount X for which you would be willing to accept the lottery.</i></b>
+</p>
+<h6><b>Lottery 9.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">50% chance</td><td class="text-center">Loss of 25 CHF</td></tr>
+      <tr><td class="text-center">50% chance</td><td class="text-center">Win of X CHF</td></tr>
+</table>
+</div>
+{{ formfield 'lot9' }}
+<br>
+<h6><b>Lottery 10.</b></h6>
+<div class="w-50 p-3">
+  <table class="table table-bordered">
+      <tr><td class="text-center">50% chance</td><td class="text-center">Loss of 100 CHF</td></tr>
+      <tr><td class="text-center">50% chance</td><td class="text-center">Win of X CHF</td></tr>
+</table>
+</div>
+{{ formfield 'lot10' }}
+<br>
+<hr><br>
+<p>How do you see yourself: are you generally a person who is fully prepared to take risks or do you try to avoid taking risks?</p>
+<table class="table">
+    <tr><td></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td></td></tr>
+    <tr><th>Not at all willing to take risks</th>
+    {{ for choice in form.general_risk }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+    <th>Very willing to take risks</th></tr>
+    </table>
+{{ formfield_errors 'general_risk' }}
+<br>
+
+{{ next_button }}
+{{ endblock }}

@@ -1,0 +1,87 @@
+{{ block title }}Willingness to pay for Personalized Graphic Information{{ endblock }}
+{{ block content }}
+<style>
+img {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+    .infobox{
+        width: 100%;
+        border-color: darkblue;
+        border-style: ridge;
+        padding: 15px;
+        margin: 20 px;
+        text-align: center;
+    }
+</style>
+
+{{ if player.wtp_o == 1 }}
+<p>Suppose the private company would offer you a personalized information package to provide targeted support for your health insurance choice.<br>
+    <b>Q1. </b>Would you be willing to pay <ins><b> {{ personal1 }} CHF</b></ins> or more for personalized information like in the following graph?
+</p>
+<div class="infobox">
+<div>
+    <p>
+        Your expected health costs are 919 Points. Currently you have the plan with lowest expected costs based on your health profile. All other plans have higher expected costs.Given your health profile the contract with the lowest expected costs is: <b>Contract 6 (2500 Deductible)</b>.<br>
+        With this contract, you expected yearly savings are: <b>774 CHF </b>
+    </p>
+    </div>
+<div>
+<img src="{{ static 'hiexperiment/rp1_plan_comparison.png' }}" class="aligncenter"/><br>
+    <p>
+            The dashed red line shows your current expected health costs.
+        </p>
+</div>
+</div>
+<br>
+{{ else }}
+<p> Suppose a private company may offer you a personalized information package in table form as below to support your health insurance choice.<br>
+    <b>Q1. </b>Would you be willing to pay <ins><b> {{ personal1 }} CHF</b></ins> or more for personalized information like in the following table?
+</p>
+<div class="infobox">
+<p>
+        Your expected health costs are 720 CHF. Given your health profile the contract with the lowest expected costs is: <b>Contract Z</b>.<br>
+        With this contract, you expected yearly savings are: <b>950 CHF</b>
+    </p> <br>
+<div class="center">
+       <p>
+           Contracts with potential savings compared to your current plan:
+       </p>
+    <table>
+  <tr>
+    <th style="text-align: right; padding-right: 10px;">Contract</th>
+      <td style="text-align: center; vertical-align: middle; padding-right: 10px; pading-left: 10px;"><b>X</b></td>
+      <td style="text-align: center; vertical-align: middle; padding-right: 10px; pading-left: 10px;"><b>Y</b></td>
+      <td style="text-align: center; vertical-align: middle; padding-right: 10px; pading-left: 10px;"><b>Z</b></td>
+      </tr>
+        <tr>
+      <th style="text-align: right; padding-right: 10px;"> Potential yearly savings in CHF </th>
+     <td style="text-align: center; vertical-align: middle; padding-right: 10px; pading-left: 10px;">100</td>
+     <td style="text-align: center; vertical-align: middle; padding-right: 10px; pading-left: 10px;">600</td>
+     <td style="text-align: center; vertical-align: middle; padding-right: 10px; pading-left: 10px;">950</td>
+        </tr>
+    </table>
+       </div>
+</div>
+
+<br>
+{{ endif }}
+<div style="text-align: center;">
+<button class="btn btn-primary" name="wtp_p1" value="True">Yes</button>
+<button class="btn btn-primary" name="wtp_p1" value="False">No</button>
+{{ formfield_errors 'wtp_p1' }}
+</div>
+
+
+
+{{ endblock }}

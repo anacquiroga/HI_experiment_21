@@ -1,0 +1,13 @@
+{{ block title }}Welcome{{ endblock }}
+{{ block content }}
+
+<p>In this study, we will ask you to go through different rounds through which you can accumulate points. The amount you are paid at the end of the experiment depends on how many points you accumulated. Your participation in this study is strictly voluntary.</p>
+<p>All information will be kept confidential and your name will not be associated with any research findings. </p>
+<p>Your participation in this study will require approximately 60 minutes.  When this study is complete you will be provided with the results of the experiment if you request them, and you will be free to ask any questions.  If you have any further questions concerning this study please feel free to contact us through email: Ana Cecilia Quiroga at ana.quiroga@unilu.ch </p>
+
+<p><input name="consent" type="checkbox" /> I consent to participate in this study.</p>
+ {{ formfield_errors 'consent' }}
+
+{{ next_button }}
+
+{{ endblock }}

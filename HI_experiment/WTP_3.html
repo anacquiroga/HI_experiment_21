@@ -1,0 +1,43 @@
+{{ block title }}Willingness to pay for General Information{{ endblock }}
+{{ block content }}
+<style>
+img {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+    .infobox{
+        width: 100%;
+        border-color: darkblue;
+        border-style: ridge;
+        padding: 15px;
+        margin: 20 px;
+        text-align: center;
+    }
+
+</style>
+
+{{ if player.wtp_g2 }}
+<p><b>Q3. </b>Would you also be willing to pay <ins><b> {{ general3 }} CHF</b></ins> or more for such information, like in the following graph?
+</p>
+{{ else }}
+<p><b>Q3. </b>Would you be willing to pay <ins><b> {{ general3 }} CHF</b></ins> or more for such information, like in the following graph?
+</p>
+{{ endif }}
+<div class="infobox">
+    <p class="aligncenter">
+
+    <img class="center" src="{{ static 'hiexperiment/plan_comparison.png' }}" /><br>
+        </p>
+<p>
+    This graph indicates the relationship between health expenditures for each plan. In general, healthy people or with low expenses spend less with high deductible plans.<br>
+    </p>
+    </div>
+<br>
+<div style="text-align: center;">
+<button class="btn btn-primary" name="wtp_g3" value="True">Yes</button>
+<button class="btn btn-primary" name="wtp_g3" value="False">No</button>
+{{ formfield_errors 'wtp_g3' }}
+</div>
+
+{{ endblock }}
